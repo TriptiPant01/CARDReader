@@ -14,18 +14,21 @@ class CardIOExample extends Component {
     CardIOModule
       .scanCard()
       .then(card => {
-        // the scanned card
+        alert(`your card number is ${card.cardNumber}`)
+        // console.log(card)
+        // // the scanned card
       })
       .catch(() => {
+        alert('user has cancel')
         // the user cancelled
       })
   }
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <TouchableOpacity onPress={this.scanCard.bind(this)}>
-          <Text>Scan card!</Text>
+          <Text style={{ backgroundColor: 'lightgrey', padding: 20, borderRadius: 10 }}>Tap to open card reader screen</Text>
         </TouchableOpacity>
       </View>
     );
